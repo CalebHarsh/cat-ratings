@@ -1,0 +1,1 @@
+export const POST_VOTES = 'POST_VOTES';
