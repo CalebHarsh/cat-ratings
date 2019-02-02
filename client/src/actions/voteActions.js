@@ -1,6 +1,6 @@
 import { FETCH_PIC } from './types';
 import axios from 'axios';
-import { API_KEY } from '../../env';
+import { API_KEY } from '../env';
 
 export function createVote(voteData) {
   return function (dispatch) {

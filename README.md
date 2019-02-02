@@ -1,43 +1,36 @@
-# Create React Express App
+# Cat GIF Ratings
+Rating random cat images. Swip left to love and Swip right to bring the hate.
 
-## About This Boilerplate
+## Before Starting
+A few simple commands to get started.
+In bash window enter
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
-
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
-
-## Starting the app locally
-
-Start by installing front and backend dependencies. While in this directory, run the following commands:
-
-```
+````
 yarn install
 cd client
 yarn install
 cd ..
-``
+````
 
-After both installations complete, run the following command in your terminal:
+This will install all necessary dependiences in both client and main.
 
-```
-yarn start
-```
+You will need to create a env.js file in client/src. this will be where you store necessary API Keys and User ID. Should look something like this.
 
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+````
+export const API_KEY = 'API_Key';
+export const USER_ID = 'UserId';
+````
 
-## Deployment (Heroku)
+Entering in the necessary API_KEY and UserID.
 
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
+Should be ready to go. Either in client or main folder, if you want to include backend possiblities, run `yarn start` and it should run on your localhost.
 
-1. Build the React app for production by running the following command:
+##API's 
+Used axios for my api calls to 'thecatapi' 
+React and redux for my front-end
 
-```
-yarn build
-```
-> Note: A yarn build will be required to register any new Post requests from any front-end JavaScript to to prevent any proxy server errors.
+Made with Create-React-App 
 
-2. Add and commit all changes to git
+##Future applications
+Right now only allows touch commands for swip commands. Hoping to add where when desktop either buttons for commands or mouse movements. 
 
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchPic } from '../../actions/picAction';
 import { createVote } from '../../actions/voteActions';
 import Swipe from 'react-swipe-component';
-import { USER_ID }  from '../../../env'
+import { USER_ID } from '../../env'
 
 class Picture extends Component {
   constructor() {
@@ -22,15 +22,19 @@ class Picture extends Component {
     console.log(this.props)
     return (
       <div className="container">
-        <Swipe
-          nodeName="div"
-          className='wrapper'
-          onSwipedLeft={this.onSwipeLeftListener}
-          onSwipedRight={this.onSwipeRightListener}
-        >
-          <img id='catImg' className="" src={this.props.src} alt="Funny cat gif" />
-        </Swipe>
-        <h4>Slide left to Like <br /> or <br/> Slide right to Hate</h4>
+        <div className="helper">
+          <Swipe
+            nodeName="div"
+            className='wrapper'
+            onSwipedLeft={this.onSwipeLeftListener}
+            onSwipedRight={this.onSwipeRightListener}
+          >
+            <img id='catImg' className="" src={this.props.src} alt="Funny cat gif" /> 
+            <div className="place"></div>
+          </Swipe>
+         
+        </div>
+        <h4>Swip left to Like <br /> or <br /> Swip right to Hate</h4>
       </div>
 
     )
@@ -44,23 +48,27 @@ class Picture extends Component {
     }
 
     this.props.createVote(vote)
-    document.getElementById("catImg").classList.add("toTheLeft");
+    document.getElementById("catImg").classList.toggle("toTheLeft");
+    setTimeout(() => document.getElementById("catImg").classList.toggle('toTheLeft'), 1000)
+
   }
   _onSwipeRightListener() {
     const vote = {
       image_id: this.props.imgId,
       value: 1,
-      sub_id: '9fnuqp'
+      sub_id: USER_ID
     }
 
     this.props.createVote(vote)
+    document.getElementById("catImg").classList.toggle("toTheRight");
+    setTimeout(() => document.getElementById("catImg").classList.toggle('toTheRight'), 1000)
   }
 
 }
 
 const mapStateToProps = state => ({
   src: state.pic.src,
-  imgId: state.pic.img_id || "hello"
+  imgId: state.pic.img_id
 })
 
 export default connect(mapStateToProps, { fetchPic, createVote })(Picture);
