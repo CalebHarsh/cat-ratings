@@ -1,1 +1,1 @@
-export const POST_VOTES = 'POST_VOTES';
+export const FETCH_PIC = 'FETCH_PIC';

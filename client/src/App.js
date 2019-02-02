@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { Provider } from 'react-redux';
 
-import VoteForm from './components/VoteForm';
 import Picture from './components/Picture';
 import "./App.css";
 
@@ -13,8 +12,8 @@ class App extends Component {
     return (
       <Provider store={store} >
         <div>
+          <h1>Cat Rankings</h1> 
           <Picture />
-          <VoteForm />
         </div>
       </Provider>
 
